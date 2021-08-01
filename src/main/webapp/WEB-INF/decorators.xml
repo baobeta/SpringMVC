@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/decorators">
+    <!-- Any urls that are excluded will never be decorated by Sitemesh -->
+    <decorator name="home" page="admin.jsp">
+        <pattern>/home*</pattern>
+    </decorator>
+    <decorator name="trang-chu" page="web.jsp">
+        <pattern>/trang-chu</pattern>
+    </decorator>
+</decorators>
