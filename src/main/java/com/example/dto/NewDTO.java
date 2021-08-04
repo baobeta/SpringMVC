@@ -6,6 +6,7 @@ public class NewDTO extends AbstractDTO<NewDTO> {
     private String shortDescription;
     private String content;
     private Long categoryId;
+    private String categoryCode;
 
     public String getTitle() {
         return title;
@@ -55,5 +56,5 @@ public class NewDTO extends AbstractDTO<NewDTO> {
         this.categoryCode = categoryCode;
     }
 
-    private String categoryCode;
+
 }
