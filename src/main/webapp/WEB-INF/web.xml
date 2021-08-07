@@ -16,7 +16,6 @@
         </param-value>
     </context-param>
 
-
     <!-- Spring MVC -->
     <servlet>
         <servlet-name>dispatcher</servlet-name>

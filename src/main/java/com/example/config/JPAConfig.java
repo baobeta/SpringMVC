@@ -38,9 +38,6 @@ public class JPAConfig {
             return null;
 
         }
-
-
-
     }
 
     @Bean
