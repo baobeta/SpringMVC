@@ -4,10 +4,19 @@ import com.example.dto.NewDTO;
 import com.example.service.INewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @RestController(value = "newAPIOfAdmin")
 public class NewAPI {
+
 
     @Autowired
     private INewService newService;
@@ -17,8 +26,9 @@ public class NewAPI {
         return newService.save(newDTO);
     }
 
-    @PutMapping("/api/new")
-    public NewDTO updateNew(@RequestBody NewDTO updateNew) {
+    @PutMapping(value="/api/new",headers=("content-type=multipart/*"))
+    public NewDTO updateNew(@RequestBody NewDTO updateNew, HttpServletRequest request) {
+//        this.doUpload(request,  updateNew);
         return newService.save(updateNew);
     }
 
@@ -26,4 +36,6 @@ public class NewAPI {
     public void deleteNew(@RequestBody long[] ids) {
         newService.delete(ids);
     }
+
+
 }

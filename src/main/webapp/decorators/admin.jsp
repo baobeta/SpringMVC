@@ -19,6 +19,7 @@
     <!-- sweetalert -->
     <script src="<c:url value='/template/admin/sweetalert/sweetalert2.min.js' />"></script>
     <link rel="stylesheet" href="<c:url value='/template/admin/sweetalert/sweetalert2.min.css'/>"/>
+    <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
 
 
 </head>

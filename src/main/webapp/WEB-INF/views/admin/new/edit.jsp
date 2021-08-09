@@ -51,12 +51,12 @@
                                 <form:input path="title" cssClass="col-xs-10 col-sm-5"/>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" >Ảnh đại diện</label>
-                            <div class="col-sm-9">
-                                <input type="file" class="col-xs-10 col-sm-5" id="thumbnail" name="thumbnail"/>
-                            </div>
-                        </div>
+<%--                        <div class="form-group">--%>
+<%--                            <label class="col-sm-3 control-label no-padding-right" >Ảnh đại diện</label>--%>
+<%--                            <div class="col-sm-9">--%>
+<%--                                <input type="file" class="col-xs-10 col-sm-5" id="thumbnail" name="thumbnail"/>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
                         <div class="form-group">
                             <label for="shortDescription" class="col-sm-3 control-label no-padding-right">Mô tả ngắn:</label>
                             <div class="col-sm-9">
@@ -99,6 +99,10 @@
     </div>
 </div>
 <script>
+    $( document ).ready(function() {
+        CKEDITOR.replace( 'shortDescription' );
+        CKEDITOR.replace( 'content' );
+    });
     $('#btnAddOrUpdateNew').click(function (e) {
         e.preventDefault();
         var data ={};

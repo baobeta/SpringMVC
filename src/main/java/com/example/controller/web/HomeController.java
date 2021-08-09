@@ -24,6 +24,11 @@ public class HomeController {
         ModelAndView mav = new ModelAndView("login");
         return mav;
     }
+    @RequestMapping(value = "/dang-ki", method = RequestMethod.GET)
+    public ModelAndView registerPage() {
+        ModelAndView mav = new ModelAndView("register");
+        return mav;
+    }
 
     @RequestMapping(value = "/thoat", method = RequestMethod.GET)
     public ModelAndView logoutPage(HttpServletRequest request, HttpServletResponse response) {
