@@ -1,12 +1,26 @@
 package com.example.dto;
 
+import com.example.entity.RoleEntity;
+
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDTO extends AbstractDTO<UserDTO>{
 
 
+    @Override
+    public Long getId() {
+        return id;
+    }
 
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    private Long id;
     @NotNull
     @NotEmpty
     private String userName;
@@ -22,6 +36,17 @@ public class UserDTO extends AbstractDTO<UserDTO>{
     @NotNull
     @NotEmpty
     private String repassword;
+
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
+    }
+
+    private List<String> roles = new ArrayList<>();
+
 
     public String getUserName() {
         return userName;

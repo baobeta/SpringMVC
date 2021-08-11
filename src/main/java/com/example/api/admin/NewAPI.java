@@ -26,9 +26,8 @@ public class NewAPI {
         return newService.save(newDTO);
     }
 
-    @PutMapping(value="/api/new",headers=("content-type=multipart/*"))
+    @PutMapping(value="/api/new")
     public NewDTO updateNew(@RequestBody NewDTO updateNew, HttpServletRequest request) {
-//        this.doUpload(request,  updateNew);
         return newService.save(updateNew);
     }
 

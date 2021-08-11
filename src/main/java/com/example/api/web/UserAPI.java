@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @RestController(value = "userAPIOfWeb")
 public class UserAPI {
@@ -16,6 +19,9 @@ public class UserAPI {
     UserService userService;
     @PostMapping("/api/user")
     public UserDTO createNew(@RequestBody UserDTO userDTO) {
+        List<String> roles = new ArrayList<String>();
+        roles.add("USER");
+        userDTO.setRoles(roles);
         return userService.save(userDTO);
     }
 }

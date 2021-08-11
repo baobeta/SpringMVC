@@ -22,6 +22,11 @@
                     you Not authorize
                 </div>
             </c:if>
+            <c:if test="${not empty message}">
+                <div class="alert alert-${alert}">
+                        ${message}
+                </div>
+            </c:if>
             <form action="j_spring_security_check" id="formLogin" method="post">
                 <div class="form-group">
                     <input type="text" class="form-control" id="userName" name="j_username" placeholder="Tên đăng nhập">

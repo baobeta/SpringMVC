@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@include file="/common/tablib.jsp"%>
+<c:url var="userAPI" value="/api/user"/>
+<c:url var="login" value="/dang-nhap"/>
+<c:url var="register" value="/dang-ki"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,14 +15,9 @@
     <!-- <h1 class="form-heading">login Form</h1> -->
     <div class="login-form">
         <div class="main-div">
-            <c:if test="${param.incorrectAccount != null}">
-                <div class="alert alert-danger">
-                    Username or password incorrect
-                </div>
-            </c:if>
-            <c:if test="${param.accessDenied != null}">
-                <div class="alert alert-danger">
-                    you Not authorize
+            <c:if test="${not empty message}">
+                <div class="alert alert-${alert}">
+                        ${message}
                 </div>
             </c:if>
             <form  id="formRegister" method="post">
@@ -27,7 +25,7 @@
                     <input type="text" class="form-control" id="userName" name="userName" placeholder="Tên đăng nhập">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" id="fullName" name="fullName" placeholder="Họ và tên">
+                    <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Họ và tên">
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control" id="password" name="password" placeholder="Mật khẩu">
@@ -41,7 +39,7 @@
     </div>
 </div>
 <script>
-    $('#btnAddOrUpdateNew').click(function (e) {
+    $('#register').click(function (e) {
         e.preventDefault();
         var data ={};
         var formData = $('#formRegister').serializeArray();
@@ -54,16 +52,16 @@
     });
     function register(data) {
         $.ajax({
-            url: '${newAPI}',
+            url: '${userAPI}',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-                window.location.href = "${editNewURL}?id="+result.id+"&message=insert_success";
+                window.location.href = "${login}?message=insert_success";
             },
             error: function (error) {
-                window.location.href = "${newURL}?page=1&limit=2&message=error_system";
+                window.location.href = "${register}?message=error_system";
             }
         });
 

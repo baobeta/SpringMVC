@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 @Controller(value = "homeControllerOfWeb")
 public class HomeController {
@@ -20,13 +21,22 @@ public class HomeController {
         return mav;
     }
     @RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
-    public ModelAndView loginPage() {
+    public ModelAndView loginPage(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView("login");
+        if (request.getParameter("message") != null) {
+            mav.addObject("message", "Đăng kí thành công vui lòng đăng nhập!");
+            mav.addObject("alert","success" );
+        }
         return mav;
     }
+
     @RequestMapping(value = "/dang-ki", method = RequestMethod.GET)
-    public ModelAndView registerPage() {
+    public ModelAndView registerPage(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView("register");
+        if (request.getParameter("message") != null) {
+            mav.addObject("message", "Dang ki that bai, vui long kiem tra lai");
+            mav.addObject("alert","danger" );
+        }
         return mav;
     }
 
