@@ -1,7 +1,7 @@
 <%@include file="/common/tablib.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-<c:url var="newAPI" value="/api/new"/>
+<c:url var="newAPI" value="/admin/api/user"/>
 <c:url var="newURL" value="/quan-tri/thanh-vien/danh-sach"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

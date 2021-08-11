@@ -18,12 +18,12 @@ public class UserAPI {
     public UserDTO createNew(@RequestBody UserDTO userDTO) {
         return userService.save(userDTO);
     }
-    @PutMapping(value="/admin/api/new")
-    public UserDTO updateNew(@RequestBody  UserDTO userDTO, HttpServletRequest request) {
+    @PutMapping(value="/admin/api/user")
+    public UserDTO updateNew(@RequestBody  UserDTO userDTO) {
         return userService.save(userDTO);
     }
 
-    @DeleteMapping("/admin/api/new")
+    @DeleteMapping("/admin/api/user")
     public void deleteNew(@RequestBody long[] ids) {
         userService.delete(ids);
     }

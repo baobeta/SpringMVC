@@ -165,7 +165,7 @@
                 window.location.href = "${editNewURL}?id="+result.id+"&message=update_success";
             },
             error: function (error) {
-                window.location.href = "${editNewURL}?id="+result.id+"&message=error_system";
+                window.location.href = "${newURL}?page=1&limit=2&message=error_system";
             }
         });
 
