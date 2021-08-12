@@ -9,6 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,20 +25,20 @@ public class HomeController {
     private INewService newService;
 
     @RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
-    public ModelAndView homePage(@RequestParam(value = "page", required = false) Integer page,
-                                 @RequestParam(value = "limit",required = false) Integer limit) {
-        if(page == null && limit == null ){
-            page = 1;
-            limit = 2;
-        }
+    public ModelAndView homePage() {
+
         NewDTO model = new NewDTO();
-        model.setPage(page);
-        model.setLimit(limit);
         ModelAndView mav = new ModelAndView("web/home");
-        Pageable pageable = new PageRequest(page - 1, limit);
-        model.setListResult(newService.findAll(pageable));
+        model.setListResult(newService.findAll());
         model.setTotalItem(newService.getTotalItem());
-        model.setTotalPage((int) Math.ceil((double) model.getTotalItem() / model.getLimit()));
+        mav.addObject("model", model);
+        return mav;
+    }
+    @RequestMapping(value = "/trang-chu/bai-viet/{id}", method = RequestMethod.GET)
+    public ModelAndView detailPage(@PathVariable("id") Long id) {
+        NewDTO model = new NewDTO();
+        ModelAndView mav = new ModelAndView("web/detail");
+        model = newService.findById(id);
         mav.addObject("model", model);
         return mav;
     }

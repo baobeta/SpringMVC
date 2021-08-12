@@ -99,10 +99,10 @@
     </div>
 </div>
 <script>
-    $( document ).ready(function() {
-        CKEDITOR.replace( 'shortDescription' );
-        CKEDITOR.replace( 'content' );
-    });
+    // $( document ).ready(function() {
+    //     CKEDITOR.replace( 'shortDescription' );
+    //     CKEDITOR.replace( 'content' );
+    // });
     $('#btnAddOrUpdateNew').click(function (e) {
         e.preventDefault();
         var data ={};

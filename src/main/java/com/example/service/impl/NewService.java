@@ -77,5 +77,16 @@ public class NewService implements INewService {
         }
     }
 
+    @Override
+    public List<NewDTO> findAll() {
+        List<NewEntity> entities = newRepository.findAll();
+        List<NewDTO> models = new ArrayList<>();
+        for (NewEntity item: entities) {
+            NewDTO newDTO = newConverter.toDTO(item);
+            models.add(newDTO);
+        }
+        return models;
+    }
+
 
 }
